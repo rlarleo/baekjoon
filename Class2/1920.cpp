@@ -35,8 +35,8 @@ int main()
     for(int i = 0; i < M; i++){
         int num;
         cin >> num;
-        myFind(0, N-1, num); // 시간초과
-        // auto it = find(vec.begin(), vec.end(), num); // 시간초과
+        myFind(0, N-1, num);
+        // auto it = find(vec.begin(), vec.end(), num); //Time over
         if(result) cout << 1 << '\n';
         else cout << 0 << '\n';
     }
