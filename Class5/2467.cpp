@@ -34,7 +34,7 @@ int main() {
 			left++;
 		}
 		else {
-			right—;
+			right--;
 		}
 	}
 
