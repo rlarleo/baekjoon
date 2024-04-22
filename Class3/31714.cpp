@@ -2,10 +2,10 @@
 #include <queue>
 #include <vector>
 #include <algorithm>
-
+#define prime 1000000007
 using namespace std;
 
-vector<long long> people[1000];
+vector<pair<int, long long>> people[1000];
 
 int main()
 {
@@ -16,18 +16,20 @@ int main()
 
     cin >> N >> M >> D;
 
-    for(int i = 0; i < N; i++){
+    for(int i = 1; i <= N; i++){
         for(int j = 0; j < M; j++){
             int input;
             cin >> input;
-            people[i].push_back(input + (D * i));
+            int h = input + (D * i);
+            people[i].push_back({h / prime, h % prime});
         }
         sort(people[i].begin(), people[i].end());
     }
 
     for(int i = 0; i < N - 1; i++){
         for(int j = 0; j < M; j++){
-            if(people[i][j] >= people[i+1][j]){
+            if(people[i][j].first > people[i+1][j].first || (
+                people[i][j].first == people[i+1][j].first && people[i][j].second > people[i+1][j].second )){
                 cout << "NO";
                 return 0;
             }
